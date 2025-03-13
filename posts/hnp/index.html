@@ -113,9 +113,13 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
         "@type": "WebPage",
         "@id": "/posts/hnp/"
     },
-    "headline": "HNP | 23\u0027s Blog","datePublished": "2025-03-13T19:26:41+08:00",
-    "dateModified": "2025-03-13T19:26:41+08:00",
+    "headline": "HNP | 23\u0027s Blog","datePublished": "2023-03-13T19:26:41+08:00",
+    "dateModified": "2023-03-13T19:26:41+08:00",
     "wordCount":  2521 ,
+    "author": {
+        "@type": "Person",
+        "name": "23"
+    },
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -166,10 +170,10 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
 
 
 
-<meta property="article:published_time" content="2025-03-13T19:26:41&#43;08:00" />
+<meta property="article:published_time" content="2023-03-13T19:26:41&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2025-03-13T19:26:41&#43;08:00" />
+<meta property="article:modified_time" content="2023-03-13T19:26:41&#43;08:00" />
 
 
 
@@ -255,7 +259,7 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
   <h1 class="mb-4">HNP</h1>
@@ -266,7 +270,7 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2025-03-13</span
+      >2023-03-13</span
     >
   </div>
   <div class="me-6 my-2">
@@ -1054,6 +1058,30 @@ if __name__ == &quot;__main__&quot;:
 
 
       
+        <div class="py-2">
+  
+    <div class="my-8 flex flex-col items-center md:flex-row">
+      <a href="/authors/23/" class="md:me-4 text-primary-text h-24 w-24">
+        
+        
+          <i class="fas fa-user-circle fa-6x"></i>
+        
+      </a>
+      <div class="mt-4 w-full md:mt-0 md:w-auto">
+        <a
+          href="/authors/23/"
+          class="mb-2 block border-b pb-1 text-lg font-bold"
+        >
+          <h3>23</h3>
+        </a>
+        <span class="block pb-2"></span>
+        
+      </div>
+    </div>
+  
+</div>
+
+      
 
       
 
@@ -1062,6 +1090,107 @@ if __name__ == &quot;__main__&quot;:
 
 
     </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#格相关定义">格相关定义</a></li>
+    <li><a href="#cvp问题">CVP问题</a></li>
+    <li><a href="#svp问题">SVP问题</a></li>
+    <li><a href="#heading"></a></li>
+    <li><a href="#hadamard-ratio">Hadamard ratio</a></li>
+    <li><a href="#欧几里得空间">欧几里得空间</a></li>
+    <li><a href="#hnp问题的本质">HNP问题的本质</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#高斯规约">高斯规约</a></li>
+    <li><a href="#gram-schmidt正交化">Gram-Schmidt正交化</a></li>
+    <li><a href="#llllenstra-lenstra-lovász算法">LLL（Lenstra-Lenstra-Lovász）算法</a></li>
+    <li><a href="#bkz算法">BKZ算法</a></li>
+    <li><a href="#babai最近平面算法">Babai最近平面算法</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#ecdsa中的应用">ECDSA中的应用</a>
+      <ul>
+        <li><a href="#ecdsa">ECDSA</a></li>
+        <li><a href="#biased-nonce-attack">biased nonce attack</a></li>
+        <li><a href="#2022linectf-baby-crypto-revisited">2022LINECTF Baby crypto revisited</a>
+          <ul>
+            <li><a href="#secp160r1-curve曲线">secp160r1 curve曲线</a></li>
+            <li><a href="#题目理解">题目理解</a></li>
+            <li><a href="#代码实现">代码实现</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#dsa中的应用">DSA中的应用</a>
+      <ul>
+        <li><a href="#2020高校战役">2020高校战役</a>
+          <ul>
+            <li><a href="#题目理解-1">题目理解</a></li>
+            <li><a href="#可行性分析">可行性分析</a></li>
+            <li><a href="#代码实现-1">代码实现</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#lcg问题中的应用">LCG问题中的应用</a>
+      <ul>
+        <li><a href="#npuctf2020-babylcg">NPUCTF2020 babyLCG</a>
+          <ul>
+            <li><a href="#题目理解-2">题目理解</a></li>
+            <li><a href="#可行性分析-1">可行性分析</a></li>
+            <li><a href="#代码实现-2">代码实现</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#其他">其他</a>
+      <ul>
+        <li><a href="#2023数字中国网络安全人才赛道">2023数字中国网络安全人才赛道</a>
+          <ul>
+            <li><a href="#题目理解-3">题目理解</a></li>
+            <li><a href="#代码实现-3">代码实现</a></li>
+          </ul>
+        </li>
+        <li><a href="#西湖论剑2022-mycurveerrorlearn">西湖论剑2022 MyCurveErrorLearn</a></li>
+        <li><a href="#bctf2018-guess-number">BCTF2018-guess number</a>
+          <ul>
+            <li><a href="#题目理解-4">题目理解</a></li>
+            <li><a href="#代码实现-4">代码实现</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#ehnp问题">EHNP问题</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
     
 
     
