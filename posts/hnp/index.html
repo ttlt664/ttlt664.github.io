@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>23&#39;s Blog</title>
+<title>HNP | 23&#39;s Blog</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
 
 
-<script defer type="text/javascript" src="/js/fontawesome.min.7ecdf591e18d9b7d9a9acfee01f5545be9b15d3fb9a6235fc83f0f7b48df77c7d3fd123037395d75224bf17af86143c1.js"></script>
+<script defer type="text/javascript" src="/js/fontawesome.min.f14def4f6943de5b19b19c02e239b98c8cc6a8fe66b6828a21da7c0e9d405df8364cab68aa637c3bbe735eb7c325aa3c.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
@@ -98,7 +98,7 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"",
+      "name":"HNP",
       "item":"/posts/hnp/"}]
 }
 </script>
@@ -113,7 +113,9 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
         "@type": "WebPage",
         "@id": "/posts/hnp/"
     },
-    "headline": "23\u0027s Blog","wordCount":  2521 ,
+    "headline": "HNP | 23\u0027s Blog","datePublished": "2025-03-13T19:26:41+08:00",
+    "dateModified": "2025-03-13T19:26:41+08:00",
+    "wordCount":  2521 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -124,7 +126,7 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
         },
     "description": "[TOC]\n定义 格相关定义 其中$v_{i}$被视为格基，L的维度是L中$v_{i}$向量的个数,称n为格的秩，其中的V就是基向量，基向量的个数一般被称为维数。n = m 时，则称该格是一个满秩格。一个格的秩是指它所包含的线性无关向量的最大数量，而格的维度则是指包含该格的向量空间的维度。\nCVP问题 给定一个在格L中的向量$\\omega$,要求在各种找到一个向量$v$,要求Euclidean norm最小，下面是原文中对于Euclidean norm的介绍\nSVP问题 Hadamard ratio 给一个$B=(V_{1},V_{2},\u0026hellip;..V_{i})$,存在hadamard不等式$||v_{1}||||v_{2}||||v_{3}||\u0026hellip;\u0026hellip;||v_{i}||\\geq{detL}$\n由此定义Hadamard ratio:$H(B)=(\\frac{detL}{||v_{1}||||v_{2}||||v_{3}||\u0026hellip;\u0026hellip;||v_{i}||})^{\\frac{1}{n}}$,该$H(B)\\in(0,1)$,比率与1的接近程度，表示这组基的正交化程度，由此可以作为其中一个标准区分”好基“与”坏基“。\n欧几里得空间 在该空间中定义了向量之间的距离和角度，满足以下公理：\n非负性：对于任意向量x，有 ||x|| \u0026gt;= 0，并且当且仅当x = 0时等号成立。 同一性：对于任意向量x，有 ||x|| = 0当且仅当x = 0。 三角不等式：对于任意向量x和y，有 ||x \u002b y|| \u0026lt;= ||x|| \u002b ||y||。 标量乘法：对于任意向量x和实数a，有 ||ax|| = |a| ||x||。 在欧几里得空间中，向量之间的距离通常使用欧几里得距离来度量，即在n维空间中，向量x和y之间的欧几里得距离为：\n$d(x, y) =\\sqrt{((x_1 - y_1)^2 \u002b (x_2 - y_2)^2 \u002b \u0026hellip; \u002b (x_n - y_n)^2)}$\n其中，$x_i$和$y_i$分别表示向量x和y在第i个维度上的坐标。\nHNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem with One Bit Oracle and Advice》论文中对于hnp问题的介绍\n由于在不同问题中不同的应用场景，按照个人的理解HNP问题的理解可以分为以下几个步骤：\n在有限域$F_{p}$上存在$u_{i}$使得$|f(tx)%p-u_{i}|\u0026lt;=\\frac{p}{2^{l\u002b1}}$,其中l是最高有效位的位数"
 }
-</script><meta property="og:title" content="23&#39;s Blog" />
+</script><meta property="og:title" content="HNP | 23&#39;s Blog" />
 <meta property="og:type" content="article" />
 
 
@@ -164,6 +166,10 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
 
 
 
+<meta property="article:published_time" content="2025-03-13T19:26:41&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2025-03-13T19:26:41&#43;08:00" />
 
 
 
@@ -252,7 +258,7 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
       class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4"></h1>
+  <h1 class="mb-4">HNP</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -260,7 +266,7 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >0001-01-01</span
+      >2025-03-13</span
     >
   </div>
   <div class="me-6 my-2">
@@ -280,15 +286,15 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
   <p>[TOC]</p>
 <h1 id="定义">定义</h1>
 <h2 id="格相关定义">格相关定义</h2>
-<img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230329100039281.png" alt="image-20230329100039281" style="zoom: 67%;" />
-<img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230326193037947.png" alt="image-20230326193037947" style="zoom:80%;" />
+<img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230329100039281.png" alt="image-20230329100039281" style="zoom: 67%;" />
+<img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230326193037947.png" alt="image-20230326193037947" style="zoom:80%;" />
 <p>其中$v_{i}$被视为格基，L的维度是L中$v_{i}$向量的个数,称<em>n</em>为格的秩，其中的V就是基向量，基向量的个数一般被称为维数。<em>n</em> = <em>m</em> 时，则称该格是一个满秩格。一个格的秩是指它所包含的线性无关向量的最大数量，而格的维度则是指包含该格的向量空间的维度。</p>
 <h2 id="cvp问题">CVP问题</h2>
-<img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230326201029976.png" alt="image-20230326201029976" style="zoom:80%;" />
+<img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230326201029976.png" alt="image-20230326201029976" style="zoom:80%;" />
 <p>给定一个在格L中的向量$\omega$,要求在各种找到一个向量$v$,要求Euclidean norm最小，下面是原文中对于Euclidean norm的介绍</p>
-<p><img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230327093924248.png" alt="image-20230327093924248"></p>
+<p><img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230327093924248.png" alt="image-20230327093924248"></p>
 <h2 id="svp问题">SVP问题</h2>
-<img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230331113537649.png" alt="image-20230331113537649"  />
+<img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230331113537649.png" alt="image-20230331113537649"  />
 <h2 id="heading"></h2>
 <h2 id="hadamard-ratio">Hadamard ratio</h2>
 <p>给一个$B=(V_{1},V_{2},&hellip;..V_{i})$,存在hadamard不等式$||v_{1}||||v_{2}||||v_{3}||&hellip;&hellip;||v_{i}||\geq{detL}$</p>
@@ -306,8 +312,8 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
 <p>其中，$x_i$和$y_i$分别表示向量x和y在第i个维度上的坐标。</p>
 <h2 id="hnp问题的本质">HNP问题的本质</h2>
 <p>以下分别是ctf wiki与《Solving Hidden Number Problem with One Bit Oracle and Advice》论文中对于hnp问题的介绍</p>
-<p><img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230331154948051.png" alt="image-20230331154948051"></p>
-<p><img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230331154740160.png" alt="image-20230331154740160"></p>
+<p><img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230331154948051.png" alt="image-20230331154948051"></p>
+<p><img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230331154740160.png" alt="image-20230331154740160"></p>
 <p>由于在不同问题中不同的应用场景，按照个人的理解HNP问题的理解可以分为以下几个步骤：</p>
 <ul>
 <li>
@@ -323,11 +329,11 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
 </li>
 </ul>
 <h1 id="问题可解的条件">问题可解的条件</h1>
-<p><img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230331162400758.png" alt="image-20230331162400758"></p>
+<p><img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230331162400758.png" alt="image-20230331162400758"></p>
 <p>当泄露的位数k,达到$k&gt;=\sqrt{n}+\sqrt{logn}$时如果有d=$2\sqrt{n}$次及以上的oracle则有1/2的机会解决问题。</p>
 <h1 id="相关算法">相关算法</h1>
 <h2 id="高斯规约">高斯规约</h2>
-<p><img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230405152157401.png" alt="image-20230405152157401"></p>
+<p><img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230405152157401.png" alt="image-20230405152157401"></p>
 <blockquote>
 <p>高斯规约仅仅适用于二维格</p>
 </blockquote>
@@ -361,7 +367,7 @@ def gaussian_reduction(B):
 <li>条件验证判断是否返回</li>
 </ul>
 <h2 id="gram-schmidt正交化">Gram-Schmidt正交化</h2>
-<img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230331101107493.png" alt="image-20230331101107493" style="zoom:80%;" />
+<img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230331101107493.png" alt="image-20230331101107493" style="zoom:80%;" />
 <p>Gram-Schmidt算法通过给定一组基，得到一组正交基，通常$p_{ij}$与角度相关</p>
 <p>归纳总结步骤可以分为以下几步：</p>
 <ul>
@@ -386,10 +392,10 @@ def gaussian_reduction(B):
 <p>从原始向量组中选取第一个向量$u_1$，然后对于后续的每一个向量$v_i$，我们找到它<strong>在前面所有向量张成的子空间上的投影向量</strong>，然后将它减去这个投影向量，得到的向量$u_i$与前面的向量都是正交的。</p>
 <h2 id="llllenstra-lenstra-lovász算法">LLL（Lenstra-Lenstra-Lovász）算法</h2>
 <blockquote>
-<p>LLL算法是一种基于Gram-Schmidt正交化方法的改进算法，用于在高维空间中对基向量进行约减,能够有效地将一个给定的整数线性方程组中的向量组进行约简，从而降低计算复杂度。算法的核心思想是通过连续的基变换来减小向量组中每个向量在其余向量张成的子空间上的投影长度，直到满足一定的约束条件为止。<img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230405155655177.png" alt="image-20230405155655177"></p>
+<p>LLL算法是一种基于Gram-Schmidt正交化方法的改进算法，用于在高维空间中对基向量进行约减,能够有效地将一个给定的整数线性方程组中的向量组进行约简，从而降低计算复杂度。算法的核心思想是通过连续的基变换来减小向量组中每个向量在其余向量张成的子空间上的投影长度，直到满足一定的约束条件为止。<img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230405155655177.png" alt="image-20230405155655177"></p>
 </blockquote>
 <p>以下是LLL算法的主要步骤：</p>
-<p><img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230420232045946.png" alt="image-20230420232045946"></p>
+<p><img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230420232045946.png" alt="image-20230420232045946"></p>
 <ol>
 <li>
 <p>初始化：给定一个正整数n和一个n维向量组B作为初始的基向量组。</p>
@@ -484,7 +490,7 @@ def BKZ(B, delta=0.99, blocksize=30):
 <blockquote>
 <p>*Babai最近平面算法仅仅在欧几里得空间中适用</p>
 </blockquote>
-<p><img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230331151351515.png" alt="image-20230331151351515"></p>
+<p><img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230331151351515.png" alt="image-20230331151351515"></p>
 <pre><code class="language-python">def Babai_closest_vector(M, G, target):
     # Babai's Nearest Plane algorithm
     small = target
@@ -497,7 +503,7 @@ def BKZ(B, delta=0.99, blocksize=30):
 <h1 id="适用场景">适用场景</h1>
 <h2 id="ecdsa中的应用">ECDSA中的应用</h2>
 <h3 id="ecdsa">ECDSA</h3>
-<p><img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230406100123080.png" alt="image-20230406100123080"></p>
+<p><img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230406100123080.png" alt="image-20230406100123080"></p>
 <p>其中的e就是nonce值</p>
 <h3 id="biased-nonce-attack">biased nonce attack</h3>
 <p>biased nonce attack是一种针对ECDSA签名算法的攻击方法，其攻击目标是私钥被保护的情况下，通过构造特殊的消息和签名对来获取ECDSA签名中使用的随机数（nonce）。通过预测nonce，攻击者可以使用已知的签名和消息计算出私钥，从而破解整个签名系统。</p>
@@ -1000,13 +1006,13 @@ if __name__ == &quot;__main__&quot;:
 </code></pre>
 <h4 id="题目理解-4">题目理解</h4>
 <p><a href="https://kel.bz/post/hnp/">https://kel.bz/post/hnp/</a>这一题以及上面数字中国的那道题目其实都有点像这篇文章中的情形 按照这篇文章中的情形 作者给出一个独特的格子如下</p>
-<p><img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230421101901518.png" alt="image-20230421101901518"></p>
+<p><img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230421101901518.png" alt="image-20230421101901518"></p>
 <h4 id="代码实现-4">代码实现</h4>
 <h1 id="补充">补充</h1>
 <h2 id="ehnp问题">EHNP问题</h2>
-<p><img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230421102543129.png" alt="image-20230421102543129"></p>
+<p><img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230421102543129.png" alt="image-20230421102543129"></p>
 <p>在文章中给出这样一个格子</p>
-<p><img src="https://grbqwe.oss-cn-hangzhou.aliyuncs.com/img/image-20230421113529512.png" alt="image-20230421113529512"></p>
+<p><img src="https://gra1n-cn.oss-cn-hangzhou.aliyuncs.com/image-20230421113529512.png" alt="image-20230421113529512"></p>
 <h1 id="总结">总结</h1>
 <p>我希望这篇文章的周期会长一点，也希望自己可以沉下心去做事情。目前这件事只当作一件忙碌之余的消遣，但希望可以让养成自己考虑问题尽可能充分的习惯。</p>
 <h1 id="参考">参考</h1>
