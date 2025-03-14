@@ -7,6 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;WANG Chucheng&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;MA Ruiqi&lt;/a&gt;
-</copyright><atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+</copyright>
+    <lastBuildDate>Fri, 14 Mar 2025 13:58:46 +0800</lastBuildDate><atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>两种视图</title>
+      <link>/docs/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%9F%BA%E7%A1%80/%E4%B8%A4%E7%A7%8D%E8%A7%86%E5%9B%BE/</link>
+      <pubDate>Fri, 14 Mar 2025 13:58:46 +0800</pubDate>
+      
+      <guid>/docs/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%9F%BA%E7%A1%80/%E4%B8%A4%E7%A7%8D%E8%A7%86%E5%9B%BE/</guid>
+      <description>链接视图 由 .text、.data、.bss、.rodata、.symtab、.strtab 等 Section 组成。
+这些 Section 在链接阶段用于解析符号、重定位代码等。
+运行时并不直接使用 Section，而是使用 Segments。
+执行视图 常见的 Segment：
+LOAD：加载到内存的段，包含代码（R-X）、数据（RW-）。 DYNAMIC：用于动态链接的信息。 INTERP：指向动态链接器（如 /lib/ld-linux.so.2）。 NOTE：包含程序的额外信息，如 ABI 版本等。 程序编译过程 预处理 处理 #include 指令，替换头文件内容。 处理 #define 宏定义，进行文本替换。 处理 #ifdef / #ifndef 等条件编译指令。 删除 注释（// 或 /* ... */）。 生成 纯代码（无预处理指令）。 gcc -E main.c -o main.i 编译 将预处理后的 C 代码（main.i）翻译成 汇编代码（Assembly）。 语法分析（Parsing），检查代码语法是否正确。 词法分析（Lexical Analysis），将源代码转换为 Token。 语义分析（Semantic Analysis），分析变量作用域、类型匹配等。 生成 优化后的汇编代码。 gcc -S main.i -o main.s 汇编 将汇编代码（.s 文件）转换为 机器指令（Object Code，目标文件）。 生成 二进制的 .o（目标文件），但此时的代码 仍无法独立运行。 gcc -c main.</description>
+    </item>
+    
   </channel>
 </rss>

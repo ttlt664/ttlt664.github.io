@@ -71,11 +71,15 @@
   integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
 
 
-<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu53e1366b23524c365892b2c7e19c6539_31785_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu53e1366b23524c365892b2c7e19c6539_31785_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="Eureka is a elegant and powerful theme for Hugo.">
+  content="链接视图 由 .text、.data、.bss、.rodata、.symtab、.strtab 等 Section 组成。
+这些 Section 在链接阶段用于解析符号、重定位代码等。
+运行时并不直接使用 Section，而是使用 Segments。
+执行视图 常见的 Segment：
+LOAD：加载到内存的段，包含代码（R-X）、数据（RW-）。 DYNAMIC：用于动态链接的信息。 INTERP：指向动态链接器（如 /lib/ld-linux.so.2）。 NOTE：包含程序的额外信息，如 ABI 版本等。 程序编译过程 预处理 处理 #include 指令，替换头文件内容。 处理 #define 宏定义，进行文本替换。 处理 #ifdef / #ifndef 等条件编译指令。 删除 注释（// 或 /* ... */）。 生成 纯代码（无预处理指令）。 gcc -E main.c -o main.i 编译 将预处理后的 C 代码（main.i）翻译成 汇编代码（Assembly）。 语法分析（Parsing），检查代码语法是否正确。 词法分析（Lexical Analysis），将源代码转换为 Token。 语义分析（Semantic Analysis），分析变量作用域、类型匹配等。 生成 优化后的汇编代码。 gcc -S main.i -o main.s 汇编 将汇编代码（.s 文件）转换为 机器指令（Object Code，目标文件）。 生成 二进制的 .o（目标文件），但此时的代码 仍无法独立运行。 gcc -c main.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -104,6 +108,7 @@
     },
     "headline": "两种视图 | 23\u0027s Blog","datePublished": "2025-03-14T13:58:46+08:00",
     "dateModified": "2025-03-14T13:58:46+08:00",
+    "wordCount":  103 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -112,7 +117,7 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "Eureka is a elegant and powerful theme for Hugo."
+    "description": "链接视图 由 .text、.data、.bss、.rodata、.symtab、.strtab 等 Section 组成。\n这些 Section 在链接阶段用于解析符号、重定位代码等。\n运行时并不直接使用 Section，而是使用 Segments。\n执行视图 常见的 Segment：\nLOAD：加载到内存的段，包含代码（R-X）、数据（RW-）。 DYNAMIC：用于动态链接的信息。 INTERP：指向动态链接器（如 \/lib\/ld-linux.so.2）。 NOTE：包含程序的额外信息，如 ABI 版本等。 程序编译过程 预处理 处理 #include 指令，替换头文件内容。 处理 #define 宏定义，进行文本替换。 处理 #ifdef \/ #ifndef 等条件编译指令。 删除 注释（\/\/ 或 \/* ... *\/）。 生成 纯代码（无预处理指令）。 gcc -E main.c -o main.i 编译 将预处理后的 C 代码（main.i）翻译成 汇编代码（Assembly）。 语法分析（Parsing），检查代码语法是否正确。 词法分析（Lexical Analysis），将源代码转换为 Token。 语义分析（Semantic Analysis），分析变量作用域、类型匹配等。 生成 优化后的汇编代码。 gcc -S main.i -o main.s 汇编 将汇编代码（.s 文件）转换为 机器指令（Object Code，目标文件）。 生成 二进制的 .o（目标文件），但此时的代码 仍无法独立运行。 gcc -c main."
 }
 </script><meta property="og:title" content="两种视图 | 23&#39;s Blog" />
 <meta property="og:type" content="article" />
@@ -126,7 +131,11 @@
 
 
 
-<meta property="og:description" content="" />
+<meta property="og:description" content="链接视图 由 .text、.data、.bss、.rodata、.symtab、.strtab 等 Section 组成。
+这些 Section 在链接阶段用于解析符号、重定位代码等。
+运行时并不直接使用 Section，而是使用 Segments。
+执行视图 常见的 Segment：
+LOAD：加载到内存的段，包含代码（R-X）、数据（RW-）。 DYNAMIC：用于动态链接的信息。 INTERP：指向动态链接器（如 /lib/ld-linux.so.2）。 NOTE：包含程序的额外信息，如 ABI 版本等。 程序编译过程 预处理 处理 #include 指令，替换头文件内容。 处理 #define 宏定义，进行文本替换。 处理 #ifdef / #ifndef 等条件编译指令。 删除 注释（// 或 /* ... */）。 生成 纯代码（无预处理指令）。 gcc -E main.c -o main.i 编译 将预处理后的 C 代码（main.i）翻译成 汇编代码（Assembly）。 语法分析（Parsing），检查代码语法是否正确。 词法分析（Lexical Analysis），将源代码转换为 Token。 语义分析（Semantic Analysis），分析变量作用域、类型匹配等。 生成 优化后的汇编代码。 gcc -S main.i -o main.s 汇编 将汇编代码（.s 文件）转换为 机器指令（Object Code，目标文件）。 生成 二进制的 .o（目标文件），但此时的代码 仍无法独立运行。 gcc -c main." />
 
 
 
@@ -285,7 +294,7 @@
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>0 min read</span>
+    <span>1 min read</span>
   </div>
 
   
@@ -297,7 +306,62 @@
   
   
 
-  
+  <h2 id="链接视图">链接视图</h2>
+<p>由 <strong>.text、.data、.bss、.rodata、.symtab、.strtab</strong> 等 <strong>Section</strong> 组成。</p>
+<p>这些 Section 在链接阶段用于解析符号、重定位代码等。</p>
+<p>运行时并不直接使用 Section，而是使用 Segments。</p>
+<h2 id="执行视图">执行视图</h2>
+<p>常见的 <strong>Segment</strong>：</p>
+<ul>
+<li><strong>LOAD</strong>：加载到内存的段，包含代码（R-X）、数据（RW-）。</li>
+<li><strong>DYNAMIC</strong>：用于动态链接的信息。</li>
+<li><strong>INTERP</strong>：指向动态链接器（如 <code>/lib/ld-linux.so.2</code>）。</li>
+<li><strong>NOTE</strong>：包含程序的额外信息，如 ABI 版本等。</li>
+</ul>
+<h2 id="程序编译过程">程序编译过程</h2>
+<h3 id="预处理">预处理</h3>
+<ol>
+<li>处理 <strong><code>#include</code></strong> 指令，替换头文件内容。</li>
+<li>处理 <strong><code>#define</code></strong> 宏定义，进行文本替换。</li>
+<li>处理 <strong><code>#ifdef</code> / <code>#ifndef</code></strong> 等条件编译指令。</li>
+<li>删除 <strong>注释</strong>（<code>//</code> 或 <code>/* ... */</code>）。</li>
+<li>生成 <strong>纯代码</strong>（无预处理指令）。</li>
+</ol>
+<pre><code class="language-c">gcc -E main.c -o main.i
+</code></pre>
+<h3 id="编译">编译</h3>
+<ol>
+<li>将预处理后的 C 代码（<code>main.i</code>）翻译成 <strong>汇编代码（Assembly）</strong>。</li>
+<li>语法分析（Parsing），检查代码语法是否正确。</li>
+<li>词法分析（Lexical Analysis），将源代码转换为 Token。</li>
+<li>语义分析（Semantic Analysis），分析变量作用域、类型匹配等。</li>
+<li>生成 <strong>优化后的汇编代码</strong>。</li>
+</ol>
+<pre><code class="language-c">gcc -S main.i -o main.s
+</code></pre>
+<h3 id="汇编">汇编</h3>
+<ol>
+<li>将汇编代码（<code>.s</code> 文件）转换为 <strong>机器指令（Object Code，目标文件）</strong>。</li>
+<li>生成 <strong>二进制的 <code>.o</code>（目标文件）</strong>，但此时的代码 <strong>仍无法独立运行</strong>。</li>
+</ol>
+<pre><code class="language-c">gcc -c main.s -o main.o
+</code></pre>
+<h3 id="链接">链接</h3>
+<ol>
+<li><strong>合并多个目标文件</strong>（<code>.o</code> 文件）。</li>
+<li>解析 <strong>外部符号</strong>（比如 <code>printf</code> 来自 <code>libc</code>）。</li>
+<li>链接 <strong>静态库（<code>\*.a</code>）或动态库（<code>\*.so</code>）</strong>。</li>
+<li>生成最终的 <strong>可执行文件</strong>。</li>
+</ol>
+<pre><code class="language-c">gcc main.o -o main
+</code></pre>
+<blockquote>
+<p><strong>静态链接</strong>：将库的代码直接嵌入可执行文件，文件较大，但运行时不依赖外部库。</p>
+<p><strong>动态链接</strong>：运行时加载 <code>.so</code> 文件（如 <code>libc.so</code>），文件较小，但依赖外部库。</p>
+</blockquote>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://www.cnblogs.com/liqinglucky/p/compiler.html">https://www.cnblogs.com/liqinglucky/p/compiler.html</a></p>
+
 </article>
 
                     
@@ -314,6 +378,45 @@
 
 
 
+                </div>
+                
+                <div class="hidden lg:block lg:w-1/4">
+                    
+                    <div
+  class="
+    bg-secondary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc 
+    border-s
+   hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#链接视图">链接视图</a></li>
+    <li><a href="#执行视图">执行视图</a></li>
+    <li><a href="#程序编译过程">程序编译过程</a>
+      <ul>
+        <li><a href="#预处理">预处理</a></li>
+        <li><a href="#编译">编译</a></li>
+        <li><a href="#汇编">汇编</a></li>
+        <li><a href="#链接">链接</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考链接">参考链接</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+                    
                 </div>
                 
             </div>
