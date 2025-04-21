@@ -8,7 +8,57 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;WANG Chucheng&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;MA Ruiqi&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Fri, 14 Mar 2025 10:54:50 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Apr 2025 21:46:45 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Compose结合Dockerfile</title>
+      <link>/posts/docker-compose%E7%BB%93%E5%90%88dockerfile/</link>
+      <pubDate>Mon, 21 Apr 2025 21:46:45 +0800</pubDate>
+      
+      <guid>/posts/docker-compose%E7%BB%93%E5%90%88dockerfile/</guid>
+      <description>主要是在做CTF环境配置中的记录 所以没有多高性能要求的配置项
+Dockerfile用来构建镜像 docker-compose用来启动管理多容器
+一个案例 Dockerfile
+# 构建阶段 FROM python:3.9 as builder WORKDIR /build COPY requirements.txt . RUN pip install --user -r requirements.txt # 生产阶段 FROM python:3.9-slim ARG FLAG # 构建参数声明 ENV FLAG=$FLAG # 转为环境变量 RUN useradd -m ctfuser WORKDIR /app COPY --from=builder /root/.local /app/.local COPY --chown=ctfuser . . USER ctfuser CMD [&amp;quot;python&amp;quot;, &amp;quot;app.py&amp;quot;] docker-compose
+version: &#39;3.8&#39; # 推荐使用 3.8 版本[3,5](@ref) services: web: image: nginx:alpine # 使用轻量级镜像 container_name: my_web # 自定义容器名（单实例场景） ports: - &amp;quot;80:80&amp;quot; # 主机端口:容器端口 volumes: - .</description>
+    </item>
+    
+    <item>
+      <title>Coppersmith</title>
+      <link>/posts/coppersmith/</link>
+      <pubDate>Thu, 17 Apr 2025 12:50:22 +0800</pubDate>
+      
+      <guid>/posts/coppersmith/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>机器学习复习</title>
+      <link>/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Wed, 19 Mar 2025 16:25:29 +0800</pubDate>
+      
+      <guid>/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%A4%8D%E4%B9%A0/</guid>
+      <description>学习路线 基础 进阶 </description>
+    </item>
+    
+    <item>
+      <title>pwn起手过程</title>
+      <link>/posts/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Sun, 16 Mar 2025 15:04:33 +0800</pubDate>
+      
+      <guid>/posts/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E8%BF%87%E7%A8%8B/</guid>
+      <description>栈溢出 pwn35 pwn36 高地址（低端内存） +-----------------+ | 返回地址 | &amp;lt;-- ebp + 4 +-----------------+ | 旧的ebp | &amp;lt;-- ebp（当前基址） +-----------------+ | ... | | 可能的填充或变量 | +-----------------+ | s[36] | &amp;lt;-- ebp - 0x28（起始地址） | | | | （36字节） +-----------------+ &amp;lt;-- ebp - 0x28 + 36 = ebp - 4 | 填充（4字节） | （编译器为对齐或局部变量分配） +-----------------+ 低地址（高端内存） ROP系列 BUUCTF rip 关于堆栈平衡 堆栈平衡（Stack Balance） 是程序执行过程中对栈空间（Stack）进行正确管理的一种机制，核心目的是确保函数调用前后栈指针（如 ESP）的一致性，避免因栈空间使用混乱导致的程序崩溃或漏洞。它是函数调用约定（Calling Convention）和程序稳定性的关键。
+几种调用约定 cdecl（C 语言默认）： 调用者（Caller）负责清理参数占用的栈空间。 例如：call func 后通过 add esp, N 平衡栈。 stdcall（Windows API 常用）： 被调用者（Callee）在函数返回时通过 ret N 清理参数。 fastcall：部分参数通过寄存器传递，减少栈操作。 如何实现栈平衡 保存ebp push ebp ; 保存调用者的 EBP mov ebp, esp ; 用 EBP 记录当前栈帧基址</description>
+    </item>
+    
+    <item>
+      <title>Gcc使用</title>
+      <link>/posts/gcc%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 14 Mar 2025 17:21:24 +0800</pubDate>
+      
+      <guid>/posts/gcc%E4%BD%BF%E7%94%A8/</guid>
+      <description>-lm → libm.a 或 libm.so -lgcc → libgcc.a 或 libgcc.so -lpthread → libpthread.a 或 libpthread.so </description>
+    </item>
+    
     <item>
       <title>几种程序保护机制</title>
       <link>/posts/%E5%87%A0%E7%A7%8D%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/</link>
@@ -36,6 +86,21 @@ $d(x, y) =\sqrt{((x_1 - y_1)^2 + (x_2 - y_2)^2 + &amp;hellip; + (x_n - y_n)^2)}$
 HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem with One Bit Oracle and Advice》论文中对于hnp问题的介绍
 由于在不同问题中不同的应用场景，按照个人的理解HNP问题的理解可以分为以下几个步骤：
 在有限域$F_{p}$上存在$u_{i}$使得$|f(tx)%p-u_{i}|&amp;lt;=\frac{p}{2^{l+1}}$,其中l是最高有效位的位数</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/posts/%E6%8F%AD%E7%A7%98%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/%E6%8F%AD%E7%A7%98%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>date = &amp;lsquo;2025-03-24T19:05:12+08:00&amp;rsquo; draft = false title = &amp;lsquo;揭秘家用路由器0day漏洞挖掘技术读书笔记&amp;rsquo;
+toc = true
++++
+路由器基础知识 WIFI几种加密认证方式 WPA
+WPA2
+WEP
+路由器漏洞类型 软件篇 硬件篇 </description>
     </item>
     
   </channel>

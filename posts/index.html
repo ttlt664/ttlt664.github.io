@@ -87,15 +87,51 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "Docker Compose结合Dockerfile",
+            "description": "主要是在做CTF环境配置中的记录 所以没有多高性能要求的配置项\nDockerfile用来构建镜像 docker-compose用来启动管理多容器\n一个案例 Dockerfile\n# 构建阶段 FROM python:3.9 as builder WORKDIR /build COPY requirements.txt . RUN pip install --user -r requirements.txt # 生产阶段 FROM python:3.9-slim ARG FLAG # 构建参数声明 ENV FLAG=$FLAG # 转为环境变量 RUN useradd -m ctfuser WORKDIR /app COPY --from=builder /root/.local /app/.local COPY --chown=ctfuser . . USER ctfuser CMD [\u0026quot;python\u0026quot;, \u0026quot;app.py\u0026quot;] docker-compose\nversion: '3.8' # 推荐使用 3.8 版本[3,5](@ref) services: web: image: nginx:alpine # 使用轻量级镜像 container_name: my_web # 自定义容器名（单实例场景） ports: - \u0026quot;80:80\u0026quot; # 主机端口:容器端口 volumes: - .",
+            "url": "/posts/docker-compose%E7%BB%93%E5%90%88dockerfile/"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
+            "name": "Coppersmith",
+            "description": "Eureka is a elegant and powerful theme for Hugo.",
+            "url": "/posts/coppersmith/"
+        },{
+            "@type":"ListItem",
+            "position":  3 ,
+            "name": "机器学习复习",
+            "description": "学习路线 基础 进阶 ",
+            "url": "/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%A4%8D%E4%B9%A0/"
+        },{
+            "@type":"ListItem",
+            "position":  4 ,
+            "name": "pwn起手过程",
+            "description": "栈溢出 pwn35 pwn36 高地址（低端内存） +-----------------+ | 返回地址 | \u0026lt;-- ebp + 4 +-----------------+ | 旧的ebp | \u0026lt;-- ebp（当前基址） +-----------------+ | ... | | 可能的填充或变量 | +-----------------+ | s[36] | \u0026lt;-- ebp - 0x28（起始地址） | | | | （36字节） +-----------------+ \u0026lt;-- ebp - 0x28 + 36 = ebp - 4 | 填充（4字节） | （编译器为对齐或局部变量分配） +-----------------+ 低地址（高端内存） ROP系列 BUUCTF rip 关于堆栈平衡 堆栈平衡（Stack Balance） 是程序执行过程中对栈空间（Stack）进行正确管理的一种机制，核心目的是确保函数调用前后栈指针（如 ESP）的一致性，避免因栈空间使用混乱导致的程序崩溃或漏洞。它是函数调用约定（Calling Convention）和程序稳定性的关键。\n几种调用约定 cdecl（C 语言默认）： 调用者（Caller）负责清理参数占用的栈空间。 例如：call func 后通过 add esp, N 平衡栈。 stdcall（Windows API 常用）： 被调用者（Callee）在函数返回时通过 ret N 清理参数。 fastcall：部分参数通过寄存器传递，减少栈操作。 如何实现栈平衡 保存ebp push ebp ; 保存调用者的 EBP mov ebp, esp ; 用 EBP 记录当前栈帧基址",
+            "url": "/posts/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E8%BF%87%E7%A8%8B/"
+        },{
+            "@type":"ListItem",
+            "position":  5 ,
+            "name": "Gcc使用",
+            "description": "-lm → libm.a 或 libm.so -lgcc → libgcc.a 或 libgcc.so -lpthread → libpthread.a 或 libpthread.so ",
+            "url": "/posts/gcc%E4%BD%BF%E7%94%A8/"
+        },{
+            "@type":"ListItem",
+            "position":  6 ,
             "name": "几种程序保护机制",
             "description": "Stack Canaries（栈金丝雀） 作用：防止栈溢出攻击（如覆盖返回地址）。 机制：在栈帧返回地址前插入一个随机值（金丝雀），函数返回时检查该值是否被篡改，如果被修改，则程序崩溃。 NX（No-eXecute）/ DEP（Data Execution Prevention） 作用：防止在数据段（如栈或堆）执行代码（比如 shellcode）。 机制：标记某些内存区域（如栈和堆）为不可执行，即使攻击者向这些区域写入了恶意代码，也无法执行。 ASLR（Address Space Layout Randomization） 作用：防止利用固定地址进行攻击（如 ret2libc）。 机制：随机化程序的地址空间，包括栈、堆、动态链接库等，使得攻击者无法预测确切的内存地址。 RELRO（Relocation Read-Only） 作用：防止修改 GOT 表，防止某些重定向攻击（如 GOT 覆盖）。 机制： Partial RELRO：仅使 .got.plt 可写，但 .got 仍可修改。 Full RELRO：整个 GOT（Global Offset Table）段变为只读，防止 GOT 劫持。 PIE（Position Independent Executable） 作用：增强 ASLR，使整个可执行文件地址随机化，防止攻击者通过固定偏移量计算地址。 机制：PIE 使程序的代码段地址也随机化，而非固定加载。 Fortify Source 作用：增强编译时和运行时的安全检查，防止常见的缓冲区溢出攻击。 机制：编译时插入额外检查，如 sprintf() 自动替换为 snprintf()，以避免溢出。 Seccomp（Secure Computing Mode） 作用：限制程序可调用的系统调用，减少攻击面。 机制：使用 prctl(PR_SET_SECCOMP, SECCOMP_MODE_STRICT) 等方式，仅允许少量安全的系统调用。 CFI（Control Flow Integrity） 作用：防止控制流劫持攻击（如 ROP）。 机制：在编译时插入额外的控制流检查，确保程序只能按照编译时确定的合法路径执行。 ",
             "url": "/posts/%E5%87%A0%E7%A7%8D%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  7 ,
             "name": "HNP",
             "description": "[TOC]\n定义 格相关定义 其中$v_{i}$被视为格基，L的维度是L中$v_{i}$向量的个数,称n为格的秩，其中的V就是基向量，基向量的个数一般被称为维数。n = m 时，则称该格是一个满秩格。一个格的秩是指它所包含的线性无关向量的最大数量，而格的维度则是指包含该格的向量空间的维度。\nCVP问题 给定一个在格L中的向量$\\omega$,要求在各种找到一个向量$v$,要求Euclidean norm最小，下面是原文中对于Euclidean norm的介绍\nSVP问题 Hadamard ratio 给一个$B=(V_{1},V_{2},\u0026hellip;..V_{i})$,存在hadamard不等式$||v_{1}||||v_{2}||||v_{3}||\u0026hellip;\u0026hellip;||v_{i}||\\geq{detL}$\n由此定义Hadamard ratio:$H(B)=(\\frac{detL}{||v_{1}||||v_{2}||||v_{3}||\u0026hellip;\u0026hellip;||v_{i}||})^{\\frac{1}{n}}$,该$H(B)\\in(0,1)$,比率与1的接近程度，表示这组基的正交化程度，由此可以作为其中一个标准区分”好基“与”坏基“。\n欧几里得空间 在该空间中定义了向量之间的距离和角度，满足以下公理：\n非负性：对于任意向量x，有 ||x|| \u0026gt;= 0，并且当且仅当x = 0时等号成立。 同一性：对于任意向量x，有 ||x|| = 0当且仅当x = 0。 三角不等式：对于任意向量x和y，有 ||x + y|| \u0026lt;= ||x|| + ||y||。 标量乘法：对于任意向量x和实数a，有 ||ax|| = |a| ||x||。 在欧几里得空间中，向量之间的距离通常使用欧几里得距离来度量，即在n维空间中，向量x和y之间的欧几里得距离为：\n$d(x, y) =\\sqrt{((x_1 - y_1)^2 + (x_2 - y_2)^2 + \u0026hellip; + (x_n - y_n)^2)}$\n其中，$x_i$和$y_i$分别表示向量x和y在第i个维度上的坐标。\nHNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem with One Bit Oracle and Advice》论文中对于hnp问题的介绍\n由于在不同问题中不同的应用场景，按照个人的理解HNP问题的理解可以分为以下几个步骤：\n在有限域$F_{p}$上存在$u_{i}$使得$|f(tx)%p-u_{i}|\u0026lt;=\\frac{p}{2^{l+1}}$,其中l是最高有效位的位数",
             "url": "/posts/hnp/"
+        },{
+            "@type":"ListItem",
+            "position":  8 ,
+            "name": "",
+            "description": "date = \u0026lsquo;2025-03-24T19:05:12+08:00\u0026rsquo; draft = false title = \u0026lsquo;揭秘家用路由器0day漏洞挖掘技术读书笔记\u0026rsquo;\ntoc = true\n+++\n路由器基础知识 WIFI几种加密认证方式 WPA\nWPA2\nWEP\n路由器漏洞类型 软件篇 硬件篇 ",
+            "url": "/posts/%E6%8F%AD%E7%A7%98%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"
         }
     ]
 }
@@ -130,7 +166,7 @@
 
 
 
-<meta property="og:updated_time" content="2025-03-14T10:54:50&#43;08:00" />
+<meta property="og:updated_time" content="2025-04-21T21:46:45&#43;08:00" />
 
 
 
@@ -225,6 +261,214 @@
   
   <div class="w-full ">
     <div class="prose">
+  <a href="/posts/docker-compose%E7%BB%93%E5%90%88dockerfile/" class="no-underline">
+    <h3 class="mt-0">Docker Compose结合Dockerfile</h3>
+  </a>
+  
+    主要是在做CTF环境配置中的记录 所以没有多高性能要求的配置项
+Dockerfile用来构建镜像 docker-compose用来启动管理多容器
+一个案例 Dockerfile
+# 构建阶段 FROM python:3.9 as builder WORKDIR /build COPY requirements.txt . RUN pip install --user -r requirements.txt # 生产阶段 FROM python:3.9-slim ARG FLAG # 构建参数声明 ENV FLAG=$FLAG # 转为环境变量 RUN useradd -m ctfuser WORKDIR /app COPY --from=builder /root/.local /app/.local COPY --chown=ctfuser . . USER ctfuser CMD [&#34;python&#34;, &#34;app.py&#34;] docker-compose
+version: &#39;3.8&#39; # 推荐使用 3.8 版本[3,5](@ref) services: web: image: nginx:alpine # 使用轻量级镜像 container_name: my_web # 自定义容器名（单实例场景） ports: - &#34;80:80&#34; # 主机端口:容器端口 volumes: - .
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2025-04-21</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="/posts/coppersmith/" class="no-underline">
+    <h3 class="mt-0">Coppersmith</h3>
+  </a>
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2025-04-17</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>0 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%A4%8D%E4%B9%A0/" class="no-underline">
+    <h3 class="mt-0">机器学习复习</h3>
+  </a>
+  
+    学习路线 基础 进阶 
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2025-03-19</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="/posts/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E8%BF%87%E7%A8%8B/" class="no-underline">
+    <h3 class="mt-0">pwn起手过程</h3>
+  </a>
+  
+    栈溢出 pwn35 pwn36 高地址（低端内存） &#43;-----------------&#43; | 返回地址 | &lt;-- ebp &#43; 4 &#43;-----------------&#43; | 旧的ebp | &lt;-- ebp（当前基址） &#43;-----------------&#43; | ... | | 可能的填充或变量 | &#43;-----------------&#43; | s[36] | &lt;-- ebp - 0x28（起始地址） | | | | （36字节） &#43;-----------------&#43; &lt;-- ebp - 0x28 &#43; 36 = ebp - 4 | 填充（4字节） | （编译器为对齐或局部变量分配） &#43;-----------------&#43; 低地址（高端内存） ROP系列 BUUCTF rip 关于堆栈平衡 堆栈平衡（Stack Balance） 是程序执行过程中对栈空间（Stack）进行正确管理的一种机制，核心目的是确保函数调用前后栈指针（如 ESP）的一致性，避免因栈空间使用混乱导致的程序崩溃或漏洞。它是函数调用约定（Calling Convention）和程序稳定性的关键。
+几种调用约定 cdecl（C 语言默认）： 调用者（Caller）负责清理参数占用的栈空间。 例如：call func 后通过 add esp, N 平衡栈。 stdcall（Windows API 常用）： 被调用者（Callee）在函数返回时通过 ret N 清理参数。 fastcall：部分参数通过寄存器传递，减少栈操作。 如何实现栈平衡 保存ebp push ebp ; 保存调用者的 EBP mov ebp, esp ; 用 EBP 记录当前栈帧基址
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2025-03-16</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="/posts/gcc%E4%BD%BF%E7%94%A8/" class="no-underline">
+    <h3 class="mt-0">Gcc使用</h3>
+  </a>
+  
+    -lm → libm.a 或 libm.so -lgcc → libgcc.a 或 libgcc.so -lpthread → libpthread.a 或 libpthread.so 
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2025-03-14</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
   <a href="/posts/%E5%87%A0%E7%A7%8D%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/" class="no-underline">
     <h3 class="mt-0">几种程序保护机制</h3>
   </a>
@@ -297,6 +541,53 @@ HNP问题的本质 以下分别是ctf wiki与《Solving Hidden Number Problem wi
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
     <span>12 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="/posts/%E6%8F%AD%E7%A7%98%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="no-underline">
+    <h3 class="mt-0"></h3>
+  </a>
+  
+    date = ‘2025-03-24T19:05:12&#43;08:00’ draft = false title = ‘揭秘家用路由器0day漏洞挖掘技术读书笔记’
+toc = true
+&#43;&#43;&#43;
+路由器基础知识 WIFI几种加密认证方式 WPA
+WPA2
+WEP
+路由器漏洞类型 软件篇 硬件篇 
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >0001-01-01</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1 min read</span>
   </div>
 
   
