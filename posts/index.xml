@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;WANG Chucheng&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;MA Ruiqi&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Mon, 21 Apr 2025 21:46:45 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Six Ways to Implement AES: Performance, Optimization, and Side-Channel Security</title>
+      <link>/posts/six-ways-to-implement-aes/</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      
+      <guid>/posts/six-ways-to-implement-aes/</guid>
+      <description>占位</description>
+    </item>
+    
     <item>
       <title>Docker Compose结合Dockerfile</title>
       <link>/posts/docker-compose%E7%BB%93%E5%90%88dockerfile/</link>
